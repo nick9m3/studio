@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+//import logo from './logo.svg';
+import {BrowserRouter, Route} from "react-router-dom";
 import './App.css';
+import '@ionic/react/css/core.css';
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
+import Servizi from './components/Servizi/Servizi';
+import News from './components/Contatti/News';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <div>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/News" component={News}/>
+          <Route exact path="/Servizi" component={Servizi}/>
+        </div>
+      </BrowserRouter>
     </div>
+    
   );
 }
 
